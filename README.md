@@ -28,29 +28,6 @@ Paying more attention however reveals that
 - the cat is inexplicably tilted to the right (see: evidence 2),
 - a line is visible on the left (see: evidence 3).
 
-## Evidence
-
-### 1. Chromatic abberration on the cat
-
-<img src="evidence/chromatic-abberration.png" width="300"/>
-
-The cat is not fully unaffected, it does show some signs of
-its color being altered.
-
-### 2. Tilt
-
-<img src="evidence/tilt.png" width="300"/>
-
-The cat is not upright.
-
-### 3. Vertical artifact
-
-<img src="evidence/line.png" width="300"/>
-
-A vertical-ish line is visible on the left.
-Its offset seems to match the tilt of the cat.
-
-
 # Practice
 
 ## Requirements
@@ -76,4 +53,41 @@ The image is now like this:
 <img src="with.png" alt="Corrupted" width="300"/>
 
 Alternatively the bash script `run.sh` will do both of these for you.
+
+# Evidence
+
+### 1. Chromatic abberration on the cat
+
+<img src="evidence/chromatic-abberration.png" height="300"/>
+<img src="repro/chromatic-abberration.png" height="300"/>
+
+The cat is not fully unaffected, it does show some signs of
+its color being altered. This is because it is not perfectly grey
+but a grey with a very light color. Though indistinguishable from
+true grey when on its own, it is visibly colored when contrasted
+with a different shade of itself.
+
+### 2. Tilt
+
+<img src="evidence/tilt.png" height="300"/>
+<img src="repro/tilt.png" height="300"/>
+
+The cat is not upright.
+The direction in which it leans suggests that the reconstitution
+is not perfect, and the means of corruption is probably deleting
+pixels instead of adding them.
+
+### 3. Vertical artifact
+
+<img src="evidence/line.png" height="300"/>
+<img src="repro/line.png" height="300"/>
+
+A vertical-ish line is visible on the left.
+Its offset seems to match the tilt of the cat.
+
+The line does not seem to be material, it appears as the contrast
+created by the sudden change of color.
+Its irregularity in the cat version suggests that the corruption
+is much less homogeneous as in the proof of concept.
+
 
