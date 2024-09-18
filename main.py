@@ -1,24 +1,33 @@
 #! /usr/bin/env python3
 
+# Ability to read environment variables
+import os
+
 # Proof of concept for
 # https://www.reddit.com/r/Bossfight/comments/1fiy1pt/comment/lnmh1ka/?context=3
 
 # Run this program once without corruption,
 # save the image, then once with corruption,
 # and compare the outputs.
-corruption = True
+# Alternatively you can let the program
+# read from the THE_UNCORRUPTIBLE env variable.
+# Use only one of these.
+
+#corruption = True
+#corruption = False
+corruption = (os.environ.get('THE_UNCORRUPTIBLE') != "")
 
 # Height and width of the image
-imax = 100
-jmax = 100
+imax = 300
+jmax = 300
 
-# Color of the background (here, uniform red)
-bg_color = (1, 0, 0)
-# Color of the foreground (here, uniform grey)
-fg_color = (0.5, 0.5, 0.5)
+# Color of the background (here, a uniform orange)
+bg_color = (1, 0.4, 0)
+# Color of the foreground (here, uniform but imperfect grey)
+fg_color = (0.53, 0.5, 0.5)
 
 # Implementation detail for the PPM format
-channel_max = 7
+channel_max = 255
 
 # Input: float between 0 and 1
 # Output: int between 0 and channel_max
@@ -57,8 +66,8 @@ for i in range(imax):
     # of a third of a pixel.
     # This is a very simplistic model, and a more advanced
     # kind of pattern could be implemented.
-    if corruption:
-        print("0")
+    if corruption and i % 2 == 0:
+        print("0 0 ")
     else:
         print()
 

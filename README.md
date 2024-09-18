@@ -68,11 +68,12 @@ The source code is `main.py`.
 With the variable `corruption = False`, execute `python3 main.py > without.ppm`.
 The image looks like this:
 
-![](without.png "Uncorrupted")
+<img src="without.png" alt="Uncorrupted" width="300"/>
 
 Then set `corruption = True` and execute again, this time saving the image to `with.ppm`.
 The image is now like this:
 
-![](with.png "Corrupted")
+<img src="with.png" alt="Corrupted" width="300"/>
 
+Alternatively the bash script `run.sh` will do both of these for you.
 
